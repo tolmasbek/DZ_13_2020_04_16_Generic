@@ -57,8 +57,7 @@ namespace DZ_16_04_2020
                     string[] new_arr = ArrayHelper<string>.Slice(user_array, begin_index, end_index);
                     break;
                 }
-            }
-            
+            }            
             Console.ReadKey();
         }
     }
