@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DZ16042020
+namespace DZ16042020Space
 {
     public class ArrayHelper<T>
     {
@@ -64,7 +64,46 @@ namespace DZ16042020
         */
         public static T[] Slice(T[] arr, int begin_index = 0, int end_index = 0)
         {
-            
+            List<T> new_arr = new List<T>();
+            int size_arr = arr.Length;
+            if (end_index == 0)
+            {
+                end_index = arr.Length;
+            }
+            if (begin_index > arr.Length - 1)
+            {
+                return new_arr.ToArray();
+            }
+            else
+            {
+                if (begin_index >= 0)
+                {
+                    if (end_index > 0)
+                    {
+                        for (int i = begin_index; i < end_index; i++)
+                        {
+                            new_arr.Add( arr[i] );
+                        }
+                    }
+                    else 
+                    if (end_index < 0)
+                    {
+                        for (int i = begin_index; i < (size_arr + end_index); i++)
+                        {
+                            new_arr.Add( arr[i] );
+                        }
+                    }
+                }
+                else 
+                if (begin_index < 0)
+                {
+                    for (int i = 0; i < (size_arr + begin_index); i++)
+                    {
+                        new_arr.Add( arr[i] );
+                    }
+                }
+                return new_arr.ToArray();
+            }
         }
     }
 }
